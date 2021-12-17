@@ -16,4 +16,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 - entryPoint : main.dart / main()
-- git : 
+- git : https://github.com/Jin-dev92/flutter-coupangEatsClone.git

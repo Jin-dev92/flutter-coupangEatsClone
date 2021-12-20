@@ -74,9 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _iconBtnOnPressHandler() {
     log("NavigatorPush to Search");
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const Search()));
+    // Navigator.push(
+    //     context, MaterialPageRoute(builder: (context) => const Search()));
     // final result = await Navigator.pushNamed(context, "/search"); url을 통한 라우팅 방식
+    // setState(() => _currentIndex = 1);
   }
 
   @override

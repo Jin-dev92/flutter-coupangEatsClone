@@ -13,13 +13,37 @@ void main() {
   runApp(const MyApp());
 }
 
-const buttonNavigatorList = <BottomNavigationBarItem>[
-  BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈",),
-  BottomNavigationBarItem(icon: Icon(Icons.search), label: "검색",),
-  BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: "즐겨찾기",),
-  BottomNavigationBarItem(icon: Icon(Icons.receipt), label: "주문 내역",),
-  BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: "My 이츠",),
-];
+enum bottomNavigation {
+  home,
+  search,
+  favorite,
+  orderHistory,
+  profile,
+}
+
+final Map<bottomNavigation, Map<String, dynamic>> _bottomNavigatorMap = {
+  bottomNavigation.home: {
+    'icon': const Icon(Icons.home),
+    'label': "홈",
+  },
+  bottomNavigation.search: {
+    'icon': const Icon(Icons.search),
+    'label': "검색",
+  },
+  bottomNavigation.favorite: {
+    'icon': const Icon(Icons.favorite_border),
+    'label': "즐겨찾기",
+  },
+  bottomNavigation.orderHistory: {
+    'icon': const Icon(Icons.receipt),
+    'label': "주문 내역",
+  },
+  bottomNavigation.profile: {
+    'icon': const Icon(Icons.person_outline),
+    'label': "My 잇츠",
+  },
+};
+
 const pages = [
   Home(),
   Search(),
@@ -30,6 +54,7 @@ const pages = [
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   // log('key:$key')
   @override
   Widget build(BuildContext context) {
@@ -96,7 +121,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: buttonNavigatorList,
+        items: _bottomNavigatorMap.entries
+            .map((e) => BottomNavigationBarItem(
+                  icon: e.value['icon'],
+                  label: e.value['label'],
+                ))
+            .toList(),
         currentIndex: _currentIndex,
         onTap: (idx) => {
           setState(() => _currentIndex = idx),

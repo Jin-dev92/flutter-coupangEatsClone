@@ -21,20 +21,58 @@ List<Map<String, String>> mainSlideImageList = [
   },
 ];
 
-const menuSlideImageList = [
-  {'title': "포장"},
-  {'title': "신규 맛집"},
-  {'title': "1인분"},
-  {'title': "한식"},
-  {'title': "치킨"},
-  {'title': "분식"},
-  {'title': "족발/보쌈"},
-  {'title': "찜/탕"},
-  {'title': "구이"},
-  {'title': "피자"},
-  {'title': "일식"},
-  {'title': "중식"},
-];
+enum subMenu {
+  takeout, // 포장
+  newPlace, // 신규 맛집
+  one, // 1인분
+  korean, // 한식
+  chicken,
+  bunsik, // 분식
+  jokbo, // 족발/보쌈
+  zzimNTang, // 찜탕
+  pizza,
+  japan, // 일식
+  china, // 중식
+}
+
+final Map<subMenu, Map<dynamic, dynamic>> submenuMap = {
+  subMenu.takeout: {
+    'title': '포장',
+    'image': '',
+  },
+  subMenu.newPlace: {
+    'title': '신규 맛집',
+  },
+  subMenu.one: {
+    'title': '1인분',
+  },
+  subMenu.korean: {
+    'title': '한식',
+  },
+  subMenu.chicken: {
+    'title': '치킨',
+  },
+  subMenu.bunsik: {
+    'title': '분식',
+    'image': 'images/bunsik.png',
+  },
+  subMenu.jokbo: {
+    'title': '족발/보쌈',
+  },
+  subMenu.zzimNTang: {
+    'title': '찜/탕',
+  },
+  subMenu.pizza: {
+    'title': '피자',
+  },
+  subMenu.japan: {
+    'title': '일식',
+  },
+  subMenu.china: {
+    'title': '중식',
+    'image': '',
+  },
+};
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -69,9 +107,6 @@ class _HomeState extends State<Home> {
 }
 
 Widget _buildTop() {
-  // function handleSubMenuOnTap = () => {
-  //
-  // }
   return Column(
     children: [
       Column(
@@ -86,7 +121,7 @@ Widget _buildTop() {
             items: mainSlideImageList.map((i) {
               return Builder(
                 builder: (BuildContext context) {
-                  return Container(
+                  return SizedBox(
                       width: MediaQuery.of(context).size.width,
                       // decoration: const BoxDecoration(),
                       child: ClipRect(
@@ -103,8 +138,29 @@ Widget _buildTop() {
         ],
       ),
       Column(
+        // mainAxisSize: MainAxisSize.max,
+        // crossAxisAlignment: Co,
         children: [
-
+/*          ListView(
+              padding: const EdgeInsets.all(10),
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              children: submenuMap.entries
+                  .map((e) =>
+                    SizedBox(
+                      width: 100,
+                      height: 100,
+                      child: GestureDetector(
+                          child: ClipRect(
+                            child: Image.asset(
+                              e.value['image'] ?? "name",
+                              // width: 50,
+                              // height: 50,
+                            ),
+                          ),
+                        ),
+                    ))
+                  .toList())*/
         ],
       )
     ],

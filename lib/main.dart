@@ -110,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
     log("MyHomepage build");
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        // title : button,
         actions: [
           IconButton(
             onPressed: _iconBtnOnPressHandler,
@@ -117,7 +119,13 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(Icons.search),
           ),
         ],
+        backgroundColor: Colors.transparent,
+        elevation: 0.0, // appBar 그림자 농도
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
       ),
+      extendBodyBehindAppBar: true, // body 위에 앱바 그리기
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

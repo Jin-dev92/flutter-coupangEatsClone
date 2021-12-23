@@ -1,23 +1,23 @@
-import 'dart:developer';
-import 'dart:math';
-
 import 'package:coupangeats_clone/component/bmiChecker.dart';
-import 'package:coupangeats_clone/page/home.dart';
+import 'package:coupangeats_clone/component/stopWatch.dart';
+import 'package:coupangeats_clone/component/todoList.dart';
 import 'package:flutter/material.dart';
 
 final List<Map<String, dynamic>> listViewItemList = [
   {
-    'icon': Icon(Icons.eleven_mp),
+    'icon': Icon(Icons.local_cafe),
     'title': "BMI 측정기",
     'page': const BmiChecker(),
   },
   {
-    'icon': Icon(Icons.eleven_mp),
+    'icon': Icon(Icons.lock_clock_sharp),
     'title': "스톱워치",
+    'page': const StopWatch(),
   },
   {
-    'icon': Icon(Icons.eleven_mp),
+    'icon': Icon(Icons.precision_manufacturing),
     'title': "ToDo List",
+    'page': const TodoList(),
   },
 ];
 
@@ -75,11 +75,7 @@ class _ProfileState extends State<Profile> {
             setState(() {
               _currentIndex = index;
             });
-
             Navigator.of(context).push(_createRoute());
-            // showModalBottomSheet(context: context, builder: buildBottomSheet);
-            print("index:$index");
-            // print(listViewItemList[index]['icon']);
           },
         );
       },

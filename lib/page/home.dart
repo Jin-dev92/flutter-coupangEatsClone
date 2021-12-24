@@ -106,6 +106,71 @@ class _HomeState extends State<Home> {
   }
 }
 
+Widget _buildCategoryBannerItem() {
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+    child: Container(
+      width: 100,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50), //모서리를 둥글게
+          border: Border.all(color: Colors.black12, width: 1)), //테두리
+      child: Image.asset("name"),
+    ),
+  )
+}
+
+Widget _buildCategoryBanner() {
+  return Column(
+    children: [
+      Column(
+        children: [
+          ListTile(
+            title: Text("테스트"),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_back_rounded),
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
+      Column(
+        children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: [
+                // 아이템 리스트
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: Container(
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50), //모서리를 둥글게
+                        border: Border.all(color: Colors.black12, width: 1)),
+                    //테두리
+                    child: Image.asset("name"),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      )
+      // Container(
+      //   child: ListView(
+      //     children: [
+      //       Text("adfadf"),
+      //       Text("2"),
+      //     ],
+      //   ),
+      // )
+    ],
+  );
+}
+
 Widget _buildTop() {
   return Column(
     children: [
@@ -122,13 +187,19 @@ Widget _buildTop() {
               return Builder(
                 builder: (BuildContext context) {
                   return SizedBox(
-                      width: MediaQuery.of(context).size.width,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                       // decoration: const BoxDecoration(),
                       child: ClipRect(
                         child: Image.asset(
                           i['image'].toString(),
                           fit: BoxFit.fitHeight,
-                          width: MediaQuery.of(context).size.width,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width,
                         ),
                       ));
                 },
@@ -169,7 +240,7 @@ Widget _buildTop() {
 
 Widget _buildCenter() {
   return Column(
-    children: [],
+    children: [_buildCategoryBanner()],
   );
 }
 

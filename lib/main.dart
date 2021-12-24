@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 /*
 *   pages
@@ -9,7 +10,9 @@ import 'package:coupangeats_clone/page/orderHistory.dart';
 import 'package:coupangeats_clone/page/profile.dart';
 import 'package:coupangeats_clone/page/search.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

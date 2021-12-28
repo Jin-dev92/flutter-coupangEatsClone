@@ -116,7 +116,7 @@ Widget _buildCategoryBannerItem() {
           border: Border.all(color: Colors.black12, width: 1)), //테두리
       child: Image.asset("name"),
     ),
-  )
+  );
 }
 
 Widget _buildCategoryBanner() {
